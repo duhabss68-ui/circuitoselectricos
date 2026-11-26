@@ -238,6 +238,35 @@ summary{cursor:pointer;font-weight:700}
 .miem{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;align-items:center}
 table.rub{box-shadow:none;margin-top:6px}table.rub td{white-space:normal}
 .rc:focus{outline:4px solid var(--rosa);outline-offset:3px}
+label.sl input[type=text],label.sl input:not([type]){font:17px var(--x);padding:10px 12px;border:2.5px solid var(--stroke);border-radius:14px;background:var(--card);color:var(--ink);min-height:48px;width:100%}
+.lband.inv{--tb:#FF8A3D}
+.item.inv{--tc:#FFC09A}.item.inv .num{background:#FF8A3D;color:var(--navy)}
+.banner-inv{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:center;text-decoration:none;color:var(--navy);background:#FF8A3D radial-gradient(rgba(255,255,255,.3) 2px,transparent 2.2px) 0 0/20px 20px;border:3px solid var(--stroke);box-shadow:0 7px 0 var(--stroke);border-radius:30px;padding:22px 28px;margin:30px 0 6px;transition:transform .15s}
+.banner-inv:hover{transform:translateY(-3px) rotate(-.4deg)}
+.banner-inv h2{margin:8px 0 4px;color:var(--navy)}.banner-inv p{margin:0;font-weight:700;font-size:17px}
+.bi-art{width:110px;height:110px;border-radius:50%;background:#fff;border:3px solid var(--stroke);display:grid;place-items:center;transform:rotate(-6deg);box-shadow:0 5px 0 var(--stroke)}.bi-art svg{width:72%;height:72%}
+.gsteps button{font-size:16px;padding:6px 16px 6px 6px}.gsteps .n{width:32px;height:32px}
+.gsteps button.on{background:#FF8A3D;color:var(--navy)}.gsteps button.on .n{background:#fff}
+ol.nlist{padding-left:22px;margin:0}ol.nlist li{margin:4px 0;font-weight:600}
+.escalera{display:grid;gap:8px}.escalera span{display:block;padding:8px 12px;border:2px solid var(--stroke);border-radius:12px;background:#FFF3C4;color:var(--navy);font-weight:600}.escalera span:nth-child(2){margin-left:14px;background:#FFE0EA}.escalera span:nth-child(3){margin-left:28px;background:#D9F7EE}
+.ckl li::before{display:none}.ckl li{padding-left:0}
+li.ck{display:flex;gap:10px;align-items:flex-start}li.ck input{width:24px;height:24px;flex:none;accent-color:#FF8A3D;margin-top:2px}li.ck label{cursor:pointer}
+.semaf p{position:relative;padding-left:34px}.luz{position:absolute;left:0;top:2px;width:22px;height:22px;border-radius:50%;border:2.5px solid var(--stroke)}
+.gantt{min-width:760px;border:2.5px solid var(--stroke);border-radius:18px;background:var(--card);overflow:hidden;box-shadow:0 5px 0 var(--stroke)}
+.gh,.gr{display:grid;grid-template-columns:240px minmax(0,1fr);border-bottom:1px solid var(--line)}
+.gr:last-child{border-bottom:0}
+.gt{padding:6px 10px;font-size:14px;font-weight:700;border-right:2px solid var(--line)}
+.gd{position:relative;display:grid;grid-template-columns:repeat(var(--n),1fr)}
+.gh .gd span{font:700 12px var(--d);text-align:center;padding:6px 0;color:var(--muted)}
+.gd span{border-left:1px solid var(--line)}.gd span.we{background:repeating-linear-gradient(45deg,var(--panel),var(--panel) 4px,transparent 4px,transparent 8px)}
+.gh .gd span.hoy{background:#FF8A3D;color:var(--navy)}
+.gd i{position:absolute;top:6px;bottom:6px;border:2px solid var(--stroke);border-radius:8px}
+table.crono input{font:15px var(--x);padding:6px 8px;border:2px solid var(--line);border-radius:10px;width:100%;min-width:110px;background:var(--card);color:var(--ink);min-height:40px}
+table.crono td:first-child input{min-width:260px}
+.fichas{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:14px;margin-top:18px}
+.fichac{background:#FFF3C4;color:var(--navy);border:2.5px solid var(--stroke);border-radius:16px;padding:14px;box-shadow:0 4px 0 var(--stroke)}.fichac .d{font-family:var(--d);font-size:18px}
+@media(max-width:700px){.banner-inv{grid-template-columns:1fr}.bi-art{display:none}}
+@media print{.encabezado,.barra,#ruta,.lband,.steps,.pasonav,#gpaso>.grid,#gpaso>.aviso,#gpaso>p,#gpaso button{display:none!important}main{padding:0}.gantt{min-width:0}.scroll{overflow:visible}}
 @media(max-width:900px){.wrap{grid-template-columns:1fr}#ruta{position:static;max-height:none;display:flex;gap:8px;overflow-x:auto;padding:12px}#ruta .nota,.ruta-t{display:none}.item{flex:none;width:210px;background:var(--card);border-color:var(--line)}.lab,.hero{grid-template-columns:1fr}.barra{position:static}.lband{grid-template-columns:1fr}.lart{display:none}.sticker{display:none}}
 @media(max-width:600px){.ops{grid-template-columns:1fr}.mb{width:18px;height:28px}table{font-size:14px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px}.stack td{display:flow-root;border:0;padding:3px 10px;padding-inline-start:8.5em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:7.5em;margin-inline-start:-8em;white-space:normal;font-weight:800}.stack td:empty{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -506,7 +535,7 @@ const nDone=()=>L.filter(l=>isDone(l.id)).length;
 const tipoTxt=l=>l.tipo==='prac'?'Práctica':'Teoría interactiva';
 const cls=l=>l.tipo==='prac'?'prac':'teo';
 function renderTop(){document.getElementById('bulbs').innerHTML=L.map(l=>mini(isDone(l.id))).join('');document.getElementById('progt').textContent=`${nDone()} de 7 luces`;document.getElementById('pts').textContent=S.pts}
-function renderNav(cur){ruta.innerHTML='<p class="ruta-t">Tu ruta</p>'+L.map((l,i)=>`<a class="item ${cls(l)}${isDone(l.id)?' hecho':''}${cur===l.id?' activo':''}" href="#${l.id}"><span class="num">${isDone(l.id)?'✓':i+1}</span><span><b>${corto(l)}</b><small>${tipoTxt(l)}</small></span></a>`).join('')+`<a class="item proy${cur==='proyecto'?' activo':''}" href="#proyecto"><span class="num">★</span><span><b>Proyecto final</b><small>Entrega 17 de dic.</small></span></a><p class="nota">Tu progreso se guarda en tu cuenta, en cualquier computadora.</p>`}
+function renderNav(cur){ruta.innerHTML='<p class="ruta-t">Tu ruta</p>'+L.map((l,i)=>`<a class="item ${cls(l)}${isDone(l.id)?' hecho':''}${cur===l.id?' activo':''}" href="#${l.id}"><span class="num">${isDone(l.id)?'✓':i+1}</span><span><b>${corto(l)}</b><small>${tipoTxt(l)}</small></span></a>`).join('')+`<a class="item inv${cur==='investigacion'?' activo':''}" href="#investigacion"><span class="num">?</span><span><b>Guía de investigación</b><small>Del cronograma a la entrega</small></span></a><a class="item proy${cur==='proyecto'?' activo':''}" href="#proyecto"><span class="num">★</span><span><b>Proyecto final</b><small>Entrega 17 de dic.</small></span></a><p class="nota">Tu progreso se guarda en tu cuenta, en cualquier computadora.</p>`}
 function siguiente(id){const i=ORDEN.indexOf(id);return ORDEN[i+1]||'proyecto'}
 function casa(n){
  const lit=k=>k<n,LUZ='#FFE45C',OFF='#3a4a7a';
@@ -546,6 +575,7 @@ function inicio(){
  <div class="globo"><span class="flota">${chispa(n?'wow':'feliz')}</span><div class="burbuja">¡Hola! Soy Chispa, un electrón. Cada clase que termines enciende una luz en la casa de los Ramírez. Llevas <b>${n} de 7</b>.</div></div></div>
  <div class="hpic">${casa(n)}</div></section>
  <section class="como">${[['Aprende','Lo básico, con dibujos','#8FDCFB',IBOOK],['Explora','Prende, rompe y mide en el simulador','#FFE68A',`<svg viewBox="4 -2 52 80">${bulb(30,74,1,false,null,true)}</svg>`],['Demuestra','5 preguntas y ganas tu insignia','#FFB3C8',IMED]].map(s=>`<div class="paso" style="background:${s[2]}">${s[3]}<div><b>${s[0]}</b><span>${s[1]}</span></div></div>`).join('')}</section>
+ <a class="banner-inv" href="#investigacion"><div class="bi-art">${gArt('preg')}</div><div><span class="chip">Nuevo · Para tu proyecto</span><h2>Guía de investigación</h2><p>Aprende a investigar como un pro en 7 pasos: del cronograma de actividades hasta la entrega del 17 de diciembre.</p></div><span class="boton dark cta">Empezar →</span></a>
  <h2>Tu misión</h2><div class="mapa">${L.map((l,i)=>{const d=isDone(l.id),nx=next===l;return `<a class="mi ${cls(l)}${d?' hecho':''}${nx?' next':''}" href="#${l.id}">${nx?'<span class="tag">¡Sigue aquí!</span>':''}<div class="arte"><span class="badge">${d?'✓':i+1}</span>${illu(ART[l.id])}</div><div class="cuerpo"><span class="tipo">${tipoTxt(l)}</span><h3>${corto(l)}</h3><p>${l.sub}</p>${d?`<span class="gan">Insignia: ${l.insignia}</span>`:''}</div></a>`}).join('')}
  <a class="mi proy" href="#proyecto"><div class="arte"><span class="badge">★</span><div style="width:150px">${casa(7)}</div></div><div class="cuerpo"><span class="tipo">Proyecto final</span><h3>Luz para una casa de la sierra</h3><p>Entrega: jueves 17 de diciembre</p></div></a></div>`;
 }
@@ -614,6 +644,7 @@ function proyecto(){anims=[];aqui('proyecto','Proyecto');
  main.innerHTML=`<header class="lband proy"><div><span class="chip">Proyecto final · en equipo</span><h1 style="margin-top:14px">Luz para una casa de la sierra</h1><p>Una familia de una comunidad remota de Nayarit vive lejos de la red eléctrica. Su equipo diseñará y construirá el prototipo de un sistema de iluminación solar para su casa, usando todo lo que aprendieron de circuitos.</p><span class="fecha">Entrega: jueves 17 de diciembre</span></div><div style="width:clamp(180px,26vw,330px)" class="hpic">${casa(nDone())}</div></header>
  <div class="grid" style="margin-top:26px"><div class="tarjeta"><h3><span class="ic" style="background:#FFE68A">?</span>La situación</h3><p>La familia Ramírez son 5 personas. Su casa tiene 2 cuartos y una cocina. De noche se alumbran con velas y una lámpara de petróleo. Necesitan luz para que los hijos hagan la tarea, para cocinar y para cargar un celular.</p><p class="nota" style="margin:0">Familia de ejemplo. Si conocen un caso real, úsenlo.</p></div>
  <div class="tarjeta"><h3><span class="ic" style="background:#8FDCFB">✓</span>Su sistema debe tener</h3><ul class="lista"><li>Un panel solar pequeño de 5 a 6 V, o dos de 3 V <b>en serie</b>.</li><li>Al menos 3 LEDs <b>en paralelo</b>, cada uno con su resistencia calculada.</li><li>Un interruptor por cuarto.</li><li>Una batería de respaldo (portapilas recargable) para la noche y los días nublados.</li></ul></div></div>
+ <a class="banner-inv" href="#investigacion" style="margin-top:24px"><div class="bi-art">${gArt('cal')}</div><div><h2>¿Por dónde empiezo?</h2><p>Usa la Guía de investigación: arma su cronograma, su pregunta y sus fichas paso a paso.</p></div><span class="boton dark cta">Abrir guía →</span></a>
  <h2>Las 5 fases del proyecto</h2><p class="nota">Las páginas son del libro <i>De lo humano y lo comunitario. Tercer grado</i>, sección Tecnología.</p>
  <table class="stack"><thead><tr><th>Fase</th><th>Qué hacen</th><th>Libro</th></tr></thead><tbody>${F.map(f=>`<tr><td><b>${f[0]}</b></td><td>${f[1]}</td><td style="white-space:nowrap">${f[2]}</td></tr>`).join('')}</tbody></table>
  <div class="aviso">${chispa('wow')}<div><b>Pregunta clave:</b> el sol no brilla de noche. ¿Cómo va a tener luz la familia cuando más la necesita? Su respuesta debe verse en el prototipo.</div></div>
@@ -765,6 +796,106 @@ sp(c,e,enviar,otra){const v=pick(['par','serie1','imposible']);let modo=v==='par
   else mal(v==='imposible'?'Mmm… ¿seguro que se puede? Piensa cuántos caminos tiene un circuito en serie.':'Todavía no. Revisa qué focos están encendidos.')};
  c.querySelector('[data-i]').onclick=()=>{if(fin)return;n++;if(v==='imposible')ganar('¡Correcto, es imposible! En serie solo hay un camino: si fundes uno, se apagan todos.');else mal('Sí se puede. Inténtalo tocando los focos.')}}
 };
+/* ---------- Guía de investigación ---------- */
+const GI={
+ cal:`<rect x="10" y="18" width="80" height="72" rx="10" fill="#fff" stroke="${NAVY}" stroke-width="4"/><rect x="10" y="18" width="80" height="20" rx="10" fill="#FF8A3D" stroke="${NAVY}" stroke-width="4"/><path d="M30 10v16M70 10v16" stroke="${NAVY}" stroke-width="5" stroke-linecap="round"/>${[0,1,2,3].map(c=>[0,1,2].map(r=>`<rect x="${20+c*16}" y="${46+r*13}" width="10" height="8" rx="2" fill="${(c+r)%3===0?'#1FB2EE':(c+r)%3===1?'#FFD23F':'#F04E7E'}"/>`).join('')).join('')}`,
+ preg:`<circle cx="44" cy="44" r="28" fill="#D9F4FF" stroke="${NAVY}" stroke-width="5"/><path d="M64 64 88 88" stroke="${NAVY}" stroke-width="9" stroke-linecap="round"/><text x="44" y="56" text-anchor="middle" font-family="Fredoka,Arial" font-weight="700" font-size="36" fill="#FF8A3D">?</text>`,
+ libro:`<path d="M10 24c14-6 26-6 40 4 14-10 26-10 40-4v58c-14-6-26-6-40 4-14-10-26-10-40-4z" fill="#fff" stroke="${NAVY}" stroke-width="4" stroke-linejoin="round"/><path d="M50 28v58" stroke="${NAVY}" stroke-width="4"/><path d="M18 38c8-3 16-3 24 0M18 50c8-3 16-3 24 0M58 38c8-3 16-3 24 0M58 50c8-3 16-3 24 0" stroke="#1FB2EE" stroke-width="4" stroke-linecap="round"/><circle cx="74" cy="70" r="12" fill="#22C29A" stroke="${NAVY}" stroke-width="3"/><path d="M68 70l4 4 8-8" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/>`,
+ ficha:`<rect x="14" y="20" width="72" height="56" rx="6" fill="#FFF3C4" stroke="${NAVY}" stroke-width="4" transform="rotate(-6 50 48)"/><rect x="18" y="28" width="72" height="56" rx="6" fill="#fff" stroke="${NAVY}" stroke-width="4"/><path d="M28 42h40M28 54h52M28 66h30" stroke="${NAVY}" stroke-width="4" stroke-linecap="round"/><path d="M74 60l10-10 6 6-10 10h-6z" fill="#F04E7E" stroke="${NAVY}" stroke-width="3" stroke-linejoin="round"/>`,
+ campo:`<rect x="20" y="14" width="60" height="78" rx="8" fill="#fff" stroke="${NAVY}" stroke-width="4"/><rect x="36" y="8" width="28" height="12" rx="4" fill="#FF8A3D" stroke="${NAVY}" stroke-width="3"/>${[34,50,66].map(y=>`<rect x="30" y="${y}" width="9" height="9" rx="2" fill="#22C29A" stroke="${NAVY}" stroke-width="2.5"/><path d="M46 ${y+5}h24" stroke="${NAVY}" stroke-width="4" stroke-linecap="round"/>`).join('')}`,
+ graf:`<path d="M12 88h78M12 88V12" stroke="${NAVY}" stroke-width="4" stroke-linecap="round"/><rect x="22" y="56" width="14" height="32" rx="3" fill="#1FB2EE" stroke="${NAVY}" stroke-width="3"/><rect x="44" y="36" width="14" height="52" rx="3" fill="#FFD23F" stroke="${NAVY}" stroke-width="3"/><rect x="66" y="20" width="14" height="68" rx="3" fill="#F04E7E" stroke="${NAVY}" stroke-width="3"/>`,
+ mega:`<path d="M14 42h14l40-22v60L28 58H14z" fill="#FF8A3D" stroke="${NAVY}" stroke-width="4" stroke-linejoin="round"/><path d="M24 58l6 24h12l-4-22" fill="#fff" stroke="${NAVY}" stroke-width="4" stroke-linejoin="round"/><path d="M78 36q8 14 0 28M86 28q14 22 0 44" stroke="#1FB2EE" stroke-width="5" fill="none" stroke-linecap="round"/>`};
+const gArt=k=>`<svg viewBox="0 0 100 100" aria-hidden="true">${GI[k]}</svg>`;
+const D0=new Date(2026,10,26),D1=new Date(2026,11,17),DIA=864e5,NDIAS=Math.round((D1-D0)/DIA)+1;
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const dIso=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
+const fCorta=s=>s?dIso(s).toLocaleDateString('es-MX',{day:'numeric',month:'short'}):'';
+const CRONO0=[['Formar el equipo y elegir la familia o comunidad','2026-11-26','2026-11-27'],['Escribir la pregunta de investigación','2026-11-27','2026-11-30'],['Buscar información (energía solar, LEDs, circuitos)','2026-11-30','2026-12-03'],['Entrevista o encuesta para el diagnóstico','2026-12-01','2026-12-04'],['Hacer fichas y organizar los datos','2026-12-03','2026-12-04'],['Diseñar el sistema y dibujar el diagrama','2026-12-07','2026-12-08'],['Estudio de factibilidad','2026-12-08','2026-12-09'],['Construir y probar el prototipo','2026-12-09','2026-12-15'],['Hacer el material de difusión','2026-12-14','2026-12-15'],['Ensayar la exposición','2026-12-16','2026-12-16'],['Entrega y exposición','2026-12-17','2026-12-17']].map(([t,i,f])=>({t,r:'',i,f,e:0}));
+const EST=['Pendiente','En proceso','¡Listo!'],ESTC=['#E3ECF5','#FFE68A','#9DEBD3'];
+function inv(){S.inv=S.inv||{};if(!S.inv.crono)S.inv.crono=CRONO0.map(x=>Object.assign({},x));if(!S.inv.chk)S.inv.chk={};if(!S.inv.fichas)S.inv.fichas=[];return S.inv}
+const PASOS_G=[
+ {k:'cal',c:'Cronograma',t:'Planea tu cronograma',sub:'Decide qué harán, quién lo hará y cuándo.'},
+ {k:'preg',c:'Pregunta',t:'Define tu pregunta',sub:'Una buena pregunta es la brújula de toda la investigación.'},
+ {k:'libro',c:'Fuentes',t:'Busca fuentes confiables',sub:'No todo lo que está en internet es verdad.'},
+ {k:'ficha',c:'Fichas',t:'Registra en fichas',sub:'Anota lo importante con tus palabras y de dónde salió.'},
+ {k:'campo',c:'Campo',t:'Investiga en campo',sub:'Pregúntale a la gente: entrevista y encuesta.'},
+ {k:'graf',c:'Análisis',t:'Analiza y concluye',sub:'Ordena tus datos y descubre qué significan.'},
+ {k:'mega',c:'Entrega',t:'Comunica y entrega',sub:'Presenta tu trabajo con claridad y a tiempo.'}];
+function chk(id,txt){const I=inv();return `<li class="ck"><input type="checkbox" id="ck-${id}" data-ck="${id}" ${I.chk[id]?'checked':''}><label for="ck-${id}">${txt}</label></li>`}
+function bindChk(el){el.querySelectorAll('[data-ck]').forEach(x=>x.onchange=()=>{inv().chk[x.dataset.ck]=x.checked;save()})}
+const tip=t=>`<div class="aviso" style="background:#FFE8D6">${chispa('wow')}<div><b>Tip de Chispa:</b> ${t}</div></div>`;
+function guia(p){anims=[];aqui('investigacion','Paso '+(p+1));const P=PASOS_G[p];
+ main.innerHTML=`<header class="lband inv"><div><span class="chip">Guía de investigación · Paso ${p+1} de 7</span><h1 style="margin-top:14px">${P.t}</h1><p>${P.sub}</p></div><div class="lart">${gArt(P.k)}</div></header>
+ <div class="steps gsteps" role="tablist">${PASOS_G.map((x,k)=>`<button role="tab" data-g="${k}" class="${k===p?'on':''}" aria-selected="${k===p}"><span class="n">${k+1}</span>${x.c}</button>`).join('')}</div>
+ <section id="gpaso"></section>
+ <div class="pasonav">${p>0?`<button data-g="${p-1}">← Paso ${p}</button>`:'<span></span>'}${p<6?`<button class="cta" style="background:#FF8A3D" data-g="${p+1}">Paso ${p+2}: ${PASOS_G[p+1].t} →</button>`:`<a class="boton dark cta" href="#proyecto">Ver mi proyecto →</a>`}</div>`;
+ const sec=main.querySelector('#gpaso');GSTEP[p](sec);bindChk(sec);
+ main.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>{guia(+b.dataset.g);scrollTo(0,0)})}
+function pasoCard(titulo,html,color){return `<div class="tarjeta"><h3><span class="ic" style="background:${color||'#FFD0B5'}">✓</span>${titulo}</h3>${html}</div>`}
+const GSTEP=[
+// 1 Cronograma
+sec=>{function draw(){const I=inv(),hoy=new Date();hoy.setHours(0,0,0,0);
+ const pos=s=>Math.max(0,Math.min(NDIAS,Math.round((dIso(s)-D0)/DIA)));
+ const dias=Array.from({length:NDIAS},(_,k)=>new Date(D0.getTime()+k*DIA));
+ sec.innerHTML=`<div class="grid">${pasoCard('¿Qué es un cronograma?','<p>Es la <b>agenda de tu investigación</b>: una lista de actividades con fechas y responsables. Sirve para no dejar todo para el último día y para que en el equipo todos sepan qué les toca.</p>')}${pasoCard('Cómo se hace','<ol class="nlist"><li>Escribe todas las actividades, de la primera a la entrega.</li><li>Ponlas en orden: unas dependen de otras.</li><li>Asigna un responsable a cada una.</li><li>Pon fecha de inicio y de fin. Deja un día de colchón antes de la entrega.</li><li>Revísalo cada clase y marca tu avance.</li></ol>','#8FDCFB')}</div>
+ ${tip('Los fines de semana y el 12 de diciembre (día de la Virgen de Guadalupe) aparecen sombreados: no cuentes con ellos para trabajar en equipo.')}
+ <h2>Tu cronograma</h2><p class="nota">Ya viene con las actividades del proyecto “Luz para una casa de la sierra”. Cámbialas, agrega o borra las que necesites. Se guarda solo en tu cuenta.</p>
+ <div class="scroll"><div class="gantt" style="--n:${NDIAS}"><div class="gh"><span></span><div class="gd">${dias.map(d=>`<span class="${d.getDay()%6===0||(d.getMonth()===11&&d.getDate()===12)?'we':''}${+d===+hoy?' hoy':''}">${d.getDate()}</span>`).join('')}</div></div>
+ ${I.crono.map(x=>`<div class="gr"><span class="gt">${esc(x.t)}</span><div class="gd">${dias.map(d=>`<span class="${d.getDay()%6===0||(d.getMonth()===11&&d.getDate()===12)?'we':''}"></span>`).join('')}${x.i&&x.f?`<i style="left:calc(${pos(x.i)} * 100% / var(--n));width:calc(${Math.max(1,pos(x.f)-pos(x.i)+1)} * 100% / var(--n));background:${ESTC[x.e]}"></i>`:''}</div></div>`).join('')}
+ </div></div>
+ <div class="scroll" style="margin-top:18px"><table class="pt crono"><thead><tr><th>Actividad</th><th>Responsable</th><th>Inicio</th><th>Fin</th><th>Estado</th><th></th></tr></thead><tbody>
+ ${I.crono.map((x,k)=>`<tr><td><input data-c="${k}|t" value="${esc(x.t)}" aria-label="Actividad"></td><td><input data-c="${k}|r" value="${esc(x.r)}" placeholder="¿Quién?" aria-label="Responsable"></td><td><input type="date" data-c="${k}|i" value="${x.i}" aria-label="Inicio"></td><td><input type="date" data-c="${k}|f" value="${x.f}" aria-label="Fin"></td><td><button class="mini-b" data-e="${k}" style="background:${ESTC[x.e]}">${EST[x.e]}</button></td><td><button class="mini-b" data-x="${k}" aria-label="Borrar actividad">✕</button></td></tr>`).join('')}</tbody></table></div>
+ <p style="margin-top:14px"><button class="prim" id="addc">+ Agregar actividad</button> <button id="impc">Imprimir mi cronograma</button> <button id="rstc" class="mini-b">Volver al original</button></p>`;
+ sec.querySelectorAll('[data-c]').forEach(i=>i.onchange=()=>{const [k,f]=i.dataset.c.split('|');inv().crono[+k][f]=i.value;save();draw()});
+ sec.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>{const x=inv().crono[+b.dataset.e];x.e=(x.e+1)%3;save();draw()});
+ sec.querySelectorAll('[data-x]').forEach(b=>b.onclick=()=>{inv().crono.splice(+b.dataset.x,1);save();draw()});
+ sec.querySelector('#addc').onclick=()=>{inv().crono.push({t:'Nueva actividad',r:'',i:iso(new Date()),f:iso(new Date()),e:0});save();draw()};
+ sec.querySelector('#impc').onclick=()=>window.print();
+ sec.querySelector('#rstc').onclick=()=>{inv().crono=CRONO0.map(x=>Object.assign({},x));save();draw()}}
+ draw()},
+// 2 Pregunta
+sec=>{const I=inv();sec.innerHTML=`<div class="grid">${pasoCard('Del tema a la pregunta','<p>El <b>tema</b> es muy amplio (“energía solar”). La <b>pregunta</b> dice exactamente qué quieres averiguar.</p><div class="escalera"><span>Tema: energía solar</span><span>Más concreto: luz para una casa sin red eléctrica</span><span><b>Pregunta:</b> ¿Cómo puede tener luz de noche una familia de la sierra usando un panel solar pequeño?</span></div>')}
+ ${pasoCard('Una buena pregunta…','<ul class="lista"><li>Empieza con <b>¿Cómo…?, ¿Por qué…? o ¿Qué…?</b></li><li>No se contesta con un “sí” o un “no”.</li><li>Se puede investigar con el tiempo y los recursos que tienen.</li><li>Ayuda a resolver un problema real.</li></ul>','#8FDCFB')}</div>
+ <div class="grid" style="margin-top:18px">${pasoCard('Ejemplos: ¿cuál es mejor?','<p>✗ “¿Existe la energía solar?” → se contesta con un sí.<br>✗ “Todo sobre la electricidad” → no es pregunta y es enorme.<br>✓ “¿Cuántos LEDs puede encender un panel de 6 V durante la noche con una batería de respaldo?”</p>','#FFB3C8')}
+ ${pasoCard('Escribe la de tu equipo',`<textarea id="gpq" rows="3" placeholder="¿Cómo…?">${esc(I.pregunta||'')}</textarea><ul class="lista ckl">${chk('q1','Empieza con ¿Cómo, ¿Por qué o ¿Qué')}${chk('q2','No se contesta con sí o no')}${chk('q3','Podemos investigarla antes del 17 de diciembre')}${chk('q4','Ayuda a la familia de nuestro proyecto')}</ul>`,'#9DEBD3')}</div>
+ ${tip('Escriban también 2 o 3 <b>preguntas secundarias</b>, por ejemplo: ¿cuánto cuesta un panel?, ¿qué pasa en días nublados?, ¿cuánto dura una batería? Así sabrán qué buscar.')}`;
+ sec.querySelector('#gpq').oninput=e=>{inv().pregunta=e.target.value;save()}},
+// 3 Fuentes
+sec=>{sec.innerHTML=`<div class="grid">${pasoCard('Semáforo de fuentes',`<div class="semaf"><p><span class="luz" style="background:#22C29A"></span><b>Confiables:</b> tu libro de texto, sitios de gobierno (.gob.mx), universidades (.edu, .unam.mx), museos de ciencia, enciclopedias y revistas de divulgación.</p><p><span class="luz" style="background:#FFD23F"></span><b>Con cuidado:</b> Wikipedia (sirve para empezar; revisa sus referencias), videos de canales educativos, páginas de empresas (quieren venderte).</p><p><span class="luz" style="background:#F04E7E"></span><b>Evita:</b> blogs sin autor, publicaciones de redes sociales, páginas llenas de anuncios, “me contaron que…”.</p></div>`)}
+ ${pasoCard('Busca como experto','<ol class="nlist"><li>Usa <b>palabras clave</b>, no frases largas: <i>panel solar casa rural iluminación</i>.</li><li>Agrega “pdf” o “site:gob.mx” para encontrar documentos serios.</li><li>Abre <b>al menos 3 fuentes</b> y compara: si dicen lo mismo, es más confiable.</li><li>Revisa la fecha: en tecnología, lo de hace 15 años puede estar viejo.</li><li>Pregúntate: ¿quién lo escribió y para qué?</li></ol>','#8FDCFB')}</div>
+ <h2>Reto: ¿confías o no confías?</h2><p class="nota">Práctica rápida. No cuenta para tu calificación.</p><div class="tarjeta" id="gclas"></div>
+ ${tip('Copiar y pegar no es investigar. Lee, entiende y luego escribe con tus palabras. Si copias una frase exacta, ponla “entre comillas” y di de dónde la sacaste.')}`;
+ const e={inst:'Acomoda cada fuente según qué tanto puedes confiar en ella.',bins:['Confiable','Con cuidado','Evitar'],pool:[['Libro de texto de la SEP','Página de la Secretaría de Energía (gob.mx)','Artículo de la UNAM','Revista de divulgación científica'],['Wikipedia','Video de un canal educativo','Página de una tienda de paneles solares'],['Publicación de Facebook sin autor','Blog anónimo lleno de anuncios','Mensaje reenviado por WhatsApp']],n:3};
+ const go=()=>RENDER.clasificar(sec.querySelector('#gclas'),e,()=>{},go);go()},
+// 4 Fichas
+sec=>{function draw(){const I=inv();sec.innerHTML=`<div class="grid">${pasoCard('¿Qué es una ficha de trabajo?','<p>Es una tarjeta donde guardas <b>una idea importante</b> que encontraste, <b>escrita con tus palabras</b>, junto con <b>de dónde la sacaste</b>. Con varias fichas, escribir tu reporte es mucho más fácil.</p>')}
+ ${pasoCard('Partes de una ficha','<ul class="lista"><li><b>Tema:</b> de qué trata (ej. “Batería de respaldo”).</li><li><b>Idea:</b> lo que aprendiste, con tus palabras.</li><li><b>Fuente:</b> autor, título, año y página o sitio web.</li><li><b>Fecha de consulta</b> si es de internet.</li></ul>','#8FDCFB')}</div>
+ <h2>Crea tus fichas</h2><div class="tarjeta"><div class="grid"><label class="sl" style="font-size:16px">Tema<input id="ft" placeholder="Ej. Energía solar"></label><label class="sl" style="font-size:16px">Autor o institución<input id="fa" placeholder="Ej. SEP"></label><label class="sl" style="font-size:16px">Título<input id="fti" placeholder="Ej. De lo humano y lo comunitario 3.º"></label><label class="sl" style="font-size:16px">Año<input id="fy" inputmode="numeric" placeholder="Ej. 2024"></label><label class="sl" style="font-size:16px">Página o sitio web<input id="fs" placeholder="p. 104"></label></div>
+ <label class="ab" style="margin-top:12px"><b>Idea con tus palabras</b><textarea id="fi" rows="3" placeholder="El panel solar convierte la luz del sol en electricidad…"></textarea></label><p><button class="prim" id="fadd">Guardar ficha</button> <span class="nota" id="fmsg"></span></p></div>
+ <div class="fichas">${I.fichas.map((f,k)=>`<div class="fichac"><b class="d">${esc(f.t)}</b><p>${esc(f.i)}</p><p class="nota">${esc(f.a)}${f.y?` (${esc(f.y)})`:''}. <i>${esc(f.ti)}</i>${f.s?'. '+esc(f.s):''}. Consultado el ${esc(f.d)}.</p><button class="mini-b" data-fx="${k}">Borrar</button></div>`).join('')||'<p class="nota">Aún no tienes fichas. ¡Haz al menos 5 para tu proyecto!</p>'}</div>
+ ${tip('Así se escribe una fuente al final de tu trabajo: <b>Autor (año). <i>Título</i>. Página o sitio web.</b> Ejemplo: SEP. <i>De lo humano y lo comunitario. Tercer grado</i>, p. 104.')}`;
+ sec.querySelector('#fadd').onclick=()=>{const v=id=>sec.querySelector(id).value.trim();const f={t:v('#ft'),a:v('#fa'),ti:v('#fti'),y:v('#fy'),s:v('#fs'),i:v('#fi'),d:new Date().toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'})};
+  if(!f.t||!f.i||!f.a||!f.ti){sec.querySelector('#fmsg').textContent='Llena al menos tema, autor, título e idea.';return}inv().fichas.push(f);save();draw()};
+ sec.querySelectorAll('[data-fx]').forEach(b=>b.onclick=()=>{inv().fichas.splice(+b.dataset.fx,1);save();draw()})}
+ draw()},
+// 5 Campo
+sec=>{sec.innerHTML=`<div class="grid">${pasoCard('Entrevista','<p>Platicas con <b>una persona que sabe del tema o que vive el problema</b> (un familiar de un rancho, un electricista, una persona de la comunidad).</p><ol class="nlist"><li>Prepara 5 a 8 preguntas abiertas.</li><li>Pide permiso para grabar o tomar notas.</li><li>Escucha más de lo que hablas.</li><li>Agradece y anota su nombre y la fecha.</li></ol>')}
+ ${pasoCard('Encuesta','<p>Haces <b>las mismas preguntas cerradas a muchas personas</b> para contar respuestas (por ejemplo, 15 compañeros o familiares).</p><ol class="nlist"><li>Preguntas cortas con opciones.</li><li>Pruébala primero con 2 personas.</li><li>Junta las respuestas en una tabla.</li></ol>','#8FDCFB')}</div>
+ <div class="grid" style="margin-top:18px">${pasoCard('Preguntas de ejemplo para la entrevista','<ul class="lista"><li>¿Cómo se alumbran de noche en su casa?</li><li>¿Cuánto gastan al mes en velas, petróleo o pilas?</li><li>¿Qué cuartos necesitan más luz y a qué hora?</li><li>¿Qué problemas les causa no tener electricidad?</li><li>¿Usarían un panel solar? ¿Qué les preocuparía?</li></ul>','#FFB3C8')}
+ ${pasoCard('Antes de salir a preguntar',`<ul class="lista ckl">${chk('c1','Escribimos nuestras preguntas')}${chk('c2','Decidimos a quién vamos a preguntar')}${chk('c3','Tenemos cuaderno o celular para registrar')}${chk('c4','Lo hacemos acompañados y con permiso de un adulto')}</ul>`,'#9DEBD3')}</div>
+ ${tip('Esto es el <b>diagnóstico</b> de tu proyecto (libro <i>De lo humano y lo comunitario</i>, pp. 68–70). Con estos datos sabrán qué necesita de verdad la familia.')}`},
+// 6 Analiza
+sec=>{sec.innerHTML=`<div class="grid">${pasoCard('Ordena tus datos','<ol class="nlist"><li>Junta tus fichas y las respuestas de campo.</li><li>Agrúpalas por tema (necesidades, costos, materiales…).</li><li>Haz una <b>tabla</b> con lo que contaste.</li><li>Si hay números, haz una <b>gráfica</b> de barras o de pastel.</li></ol>')}
+ ${pasoCard('Encuentra el sentido','<ul class="lista"><li>¿Qué se repite más?</li><li>¿Qué te sorprendió?</li><li>¿Tus fuentes coinciden o se contradicen?</li><li>¿Ya puedes contestar tu pregunta de investigación?</li></ul>','#8FDCFB')}</div>
+ <div class="grid" style="margin-top:18px">${pasoCard('Ejemplo de conclusión','<p>“De las 12 personas que encuestamos, 9 se alumbran con velas y gastan cerca de $150 al mes. Un panel de 6 V con 3 LEDs y pilas recargables les daría luz 4 horas cada noche. Por eso concluimos que…”</p><p class="nota">Una conclusión <b>responde tu pregunta</b> y se apoya en <b>tus datos</b>.</p>','#FFB3C8')}
+ ${pasoCard('Revisa tu análisis',`<ul class="lista ckl">${chk('a1','Organizamos los datos en una tabla')}${chk('a2','Hicimos al menos una gráfica')}${chk('a3','La conclusión responde nuestra pregunta')}${chk('a4','Cada dato importante dice de qué fuente salió')}</ul>`,'#9DEBD3')}</div>
+ ${tip('Ejemplo de números para la conclusión: los datos de la encuesta son inventados. ¡Usen los suyos!')}`},
+// 7 Entrega
+sec=>{sec.innerHTML=`<div class="grid">${pasoCard('Partes de tu reporte','<ol class="nlist"><li><b>Portada:</b> escuela, título, integrantes, grupo y fecha.</li><li><b>Introducción:</b> el problema y tu pregunta.</li><li><b>Desarrollo:</b> lo que investigaste, tu diagnóstico y tu diseño (con el diagrama del circuito).</li><li><b>Conclusiones:</b> la respuesta a tu pregunta.</li><li><b>Fuentes:</b> la lista de todo lo que consultaste.</li></ol>')}
+ ${pasoCard('Tu exposición de 3 minutos','<ul class="lista"><li><b>30 s:</b> la familia y su problema.</li><li><b>1 min:</b> cómo funciona su sistema (muestren el prototipo).</li><li><b>1 min:</b> por qué es factible y cómo se cuida.</li><li><b>30 s:</b> conclusión.</li></ul><p class="nota">Todos los integrantes hablan. Ensayen con cronómetro.</p>','#8FDCFB')}</div>
+ <h2>Lista final antes de entregar</h2><div class="tarjeta"><ul class="lista ckl">${chk('e1','El prototipo enciende y tiene batería de respaldo')}${chk('e2','El diagrama usa los símbolos correctos')}${chk('e3','Incluimos el cálculo de la resistencia de los LEDs')}${chk('e4','Tenemos la tabla de factibilidad (técnica, operativa y económica)')}${chk('e5','El material de difusión explica cómo usar y cuidar el sistema')}${chk('e6','La lista de fuentes está completa')}${chk('e7','Ensayamos la exposición de 3 minutos')}${chk('e8','Todo está listo para el jueves 17 de diciembre')}</ul></div>
+ ${tip('Revisen esta lista dos días antes de la entrega, no la noche anterior. Así les da tiempo de arreglar lo que falte.')}`}];
+
 /* ---------- Sesión ---------- */
 function pintarYo(){const y=document.getElementById('yo');if(!YO){y.innerHTML='';return}
  y.innerHTML=`<span class="chip yo-n" title="${esc(YO.nombre)}">${YO.rol==='maestro'?'Maestro':esc(YO.usuario)} · ${esc(YO.nombre)}</span><button class="mini-b" id="salir">Salir</button>`;
@@ -791,15 +922,15 @@ async function arrancar(){
  route()}
 function route(){if(!YO)return;if(YO.rol==='maestro'){panel();return}
  anims=[];const id=(location.hash||'#inicio').slice(1);const l=L.find(x=>x.id===id);
- document.body.className=(!l&&id!=='proyecto')?'home':'';renderNav(id);renderTop();
- if(l)l.tipo==='teo'?teoria(l,0):practica(l);else if(id==='proyecto')proyecto();else{aqui('inicio','Portada');inicio()}
+ document.body.className=(!l&&id!=='proyecto'&&id!=='investigacion')?'home':'';renderNav(id);renderTop();
+ if(l)l.tipo==='teo'?teoria(l,0):practica(l);else if(id==='investigacion')guia(0);else if(id==='proyecto')proyecto();else{aqui('inicio','Portada');inicio()}
  window.scrollTo(0,0)}
 addEventListener('hashchange',route);
 
 /* ---------- Panel del maestro ---------- */
 let PD={al:[],av:{},it:[],pr:{},eq:[],cfg:{}},canal=null,vista='grupo',selAl=null,rtEstado='',redT=0,relojP=0;
 const CL=L.map(l=>l.id),PRAC=L.filter(l=>l.tipo==='prac').map(l=>l.id);
-const cN=id=>id==='inicio'?'Portada':id==='proyecto'?'Proyecto':id&&id.startsWith('clase-')?'Clase '+id.slice(6):'—';
+const cN=id=>id==='investigacion'?'Guía de investigación':id==='inicio'?'Portada':id==='proyecto'?'Proyecto':id&&id.startsWith('clase-')?'Clase '+id.slice(6):'—';
 const NIV={esperado:['Nivel esperado','E','#22C29A'],proceso:['En proceso','P','#FFD23F'],apoyo:['Requiere apoyo','A','#F04E7E']};
 const enLinea=av=>av&&Date.now()-new Date(av.actualizado).getTime()<150000;
 function hace(ts){if(!ts)return 'nunca';const s=(Date.now()-new Date(ts).getTime())/1000;return s<60?'hace un momento':s<3600?`hace ${Math.round(s/60)} min`:s<86400?`hace ${Math.round(s/3600)} h`:new Date(ts).toLocaleDateString('es-MX',{day:'numeric',month:'short'})}
