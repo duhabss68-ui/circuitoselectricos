@@ -205,9 +205,9 @@ label.ab b{font-family:var(--d);font-weight:600;font-size:18px;color:var(--head)
 textarea{font:17px/1.5 var(--x);padding:12px;border:2.5px solid var(--stroke);border-radius:14px;width:100%;background:var(--card);color:var(--ink);resize:vertical}
 .prob{border:2px solid var(--line);border-radius:16px;padding:12px 16px;margin-bottom:12px;background:var(--panel)}
 .prob.ok{background:#D9F7EE;color:var(--navy)}.prob.no{background:#FFE0EA;color:var(--navy)}
-label.num{display:flex;gap:10px;align-items:center;max-width:280px}
-label.num input{font:700 20px var(--x);padding:10px 12px;border:2.5px solid var(--stroke);border-radius:14px;width:100%;min-height:50px;background:#fff;color:var(--navy)}
-label.num b{font:700 22px var(--d)}
+label.resp-n{display:flex;gap:10px;align-items:center;max-width:300px}
+label.resp-n input{font:700 20px var(--x);padding:10px 12px;border:2.5px solid var(--stroke);border-radius:14px;width:100%;min-height:50px;background:#fff;color:var(--navy)}
+label.resp-n b{font:700 22px var(--d)}
 .stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .stat{background:#fff;color:var(--navy);border:2.5px solid var(--stroke);border-radius:16px;padding:6px 14px;font-weight:700;box-shadow:0 3px 0 var(--stroke)}
 .stat b{font:700 22px var(--d)}
@@ -748,7 +748,7 @@ mediciones(c,e,enviar,otra){c.innerHTML=`<p>${e.inst}</p><div class="grid">${e.c
   enviar(null,null,{mediciones:e.campos.map((f,i)=>({campo:f,valor:v[i]})),observacion:o});
   c.innerHTML=`<div class="aviso" style="background:#D9F7EE">${chispa('feliz')}<div><b>¡Enviado!</b> Tu maestro lo va a revisar.</div></div><ul class="lista">${e.campos.map((f,i)=>`<li>${f}: <b>${fmt(v[i])} V</b></li>`).join('')}</ul><p>${esc(o)}</p>`;botonOtra(c,otra,'Enviar mediciones corregidas')}},
 numeros(c,e,enviar,otra){const P=e.gen(),el={};
- c.innerHTML=`${P.map((p,i)=>`<div class="prob"><p><b>Problema ${i+1}.</b> ${p.txt}</p>${p.opciones?`<div class="mats">${p.opciones.map(o=>`<button data-p="${i}" data-v="${o}">${o} ${p.unidad}</button>`).join('')}</div>`:`<label class="num"><input type="text" inputmode="decimal" data-n="${i}" placeholder="Tu respuesta" aria-label="Respuesta del problema ${i+1}"><b>${p.unidad}</b></label>`}</div>`).join('')}<p><button class="prim" data-env="1">Revisar y enviar</button> <span class="nota msg"></span></p>`;
+ c.innerHTML=`${P.map((p,i)=>`<div class="prob"><p><b>Problema ${i+1}.</b> ${p.txt}</p>${p.opciones?`<div class="mats">${p.opciones.map(o=>`<button data-p="${i}" data-v="${o}">${o} ${p.unidad}</button>`).join('')}</div>`:`<label class="resp-n"><input type="text" inputmode="decimal" data-n="${i}" placeholder="Tu respuesta" aria-label="Respuesta del problema ${i+1}"><b>${p.unidad}</b></label>`}</div>`).join('')}<p><button class="prim" data-env="1">Revisar y enviar</button> <span class="nota msg"></span></p>`;
  c.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{el[b.dataset.p]=+b.dataset.v;c.querySelectorAll(`[data-p="${b.dataset.p}"]`).forEach(x=>x.classList.toggle('on',x===b))});
  c.querySelector('[data-env]').onclick=()=>{const v=P.map((p,i)=>p.opciones?el[i]:parseFloat((c.querySelector(`[data-n="${i}"]`).value||'').replace(',','.')));
   if(v.some(x=>x==null||isNaN(x))){c.querySelector('.msg').textContent='Contesta todos los problemas.';return}
